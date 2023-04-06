@@ -266,7 +266,7 @@ const ApprovalManagement: React.FC = () => {
             hideInTable: true,
             dataIndex: 'onHoldReason',
             valueEnum: {
-                1: '与员工沟通',
+                1: '与用户沟通',
                 2: '与合规沟通'
             }
         },
@@ -418,16 +418,14 @@ const ApprovalManagement: React.FC = () => {
                         LoadOrderReviewList({...rest, pageSize: 20, pageIndex: 1}).then((res)=>{
                             if(res.state === 1){
                                 if(res.total >= 1000){
-                                    message.error('导出条数过多，请增加筛选条件！')
+                                    message.error('导出条数过多，请增加日期筛选条件或缩小时间范围!')
                                 }else {
                                     requestExport()
                                 }
                             }
                         })
                     }
-
                 }}
-
             >导出文件</Button>}
             columns={columns}
             form={{
